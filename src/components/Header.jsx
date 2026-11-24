@@ -1,10 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 function Header({ cartCount, wishlistCount, activeTab, setActiveTab }) {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         
         <div 
-          onClick={() => setActiveTab('shop')}
+          onClick={() => navigate('/')}
           className="flex items-center gap-2 cursor-pointer group"
         >
           <span className="text-2xl font-black tracking-wider text-emerald-400 group-hover:text-emerald-300 transition">
@@ -14,7 +18,7 @@ function Header({ cartCount, wishlistCount, activeTab, setActiveTab }) {
 
         <nav className="hidden md:flex items-center gap-6">
           <button 
-            onClick={() => setActiveTab('shop')}
+            onClick={() => navigate('/')}
             className={`text-sm font-medium transition ${
               activeTab === 'shop' ? 'text-emerald-400 font-bold' : 'text-slate-300 hover:text-white'
             }`}
@@ -49,7 +53,7 @@ function Header({ cartCount, wishlistCount, activeTab, setActiveTab }) {
           </button>
 
           <button 
-            onClick={() => setActiveTab('cart')}
+            onClick={() => navigate('/cart')}
             className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2 ${
               activeTab === 'cart' 
                 ? 'bg-emerald-500 text-slate-950 font-bold' 
